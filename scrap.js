@@ -118,6 +118,53 @@ function SumLinkedLists(l1, l2)
 }
 
 
+node = { value : null , next : null } ;
+
+function reverseLL(nd) {
+  var currentNode = nd ;
+  var nextNode = nd.next ;
+  currentNode.next = null ;
+  var nextNext ;
+  while (currentNode.next !=null) {
+    // save the next next
+    nextNext = nextNode.next ;
+    nextNode.next = currentNode ;
+    currentNode = currentNode.next ;
+    nextNode = nextNode.next
+  }
+}
+
+function HashTable (obj)
+{
+  this.items = {} ;
+  if (obj != null) 
+  {
+    for (var attr in obj) 
+    {
+     if (obj.hasOwnProperty(attr)) items[attr] = obj[attr] ;  
+    }
+  }
+  this.addItem = function (obj) {
+    for var (attr in obj)
+    {
+      if (obj.hasOwnProperty(attr)) items[attr] = obj[attr] ; 
+    }
+  }
+}
+
+var htable = new HashTable({}) ;
+htable.addItem(node) ;
+
+function findLoop(node) {
+  var currentNode = node ;
+  while node.next != null {
+    if (htable.items.hasOwnProperty(currentNode.value)) return htable.items[currentNode.value];
+    currentNode = currentNode.next ;
+  }
+  return false ;
+}
+
+
 
 
 
